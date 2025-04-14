@@ -1,9 +1,3 @@
-# TODO - create game over screen
-# TODO - create welcome screen with rules, cash deposit, new game, load last game
-# TODO - add saving feature
-# TODO - fix background colour of special cards
-# TODO - shows game over when blacks are still in deck
-
 import random
 import tkinter as tk
 from tkinter import messagebox
@@ -179,10 +173,9 @@ def draw_card():
                     drawn_cards.remove(card)
                     deck.append(card)
 
-        # Choose and display the days tasks
+        # Change appearance if red or black
         if card[1] == "Diamonds" or card[1] == "Hearts":
             change_appearance_red()
-        # TODO: add different appearance for special cards
         else:
             change_appearance_black()
 
@@ -223,7 +216,7 @@ def draw_card():
         with open('data.json', 'w') as filenames:
             json.dump(data, filenames)
 
-        # TODO: Make this game over screen
+             # Game over screen
         if blacks_in_deck <= 0:
             card_text_label.config(text="Game over")
             os.remove(file_path)
@@ -234,7 +227,6 @@ def draw_card():
             bet_button.destroy()
 
 
-# TODO: make this a home screen
 # Create a label to display the card in text
 card_text_label = tk.Label(window, text="Card game\n"
                                         "rules:\n"
